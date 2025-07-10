@@ -5,13 +5,16 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 scraper = cloudscraper.create_scraper()
 
-def extract_link_from_snote(html):
-    soup = BeautifulSoup(html, "html.parser")
-    a = soup.find("a", href=True)
-    if a and a['href'].startswith("http"):
-        return a['href']
-    match = re.search(r'https?://[^\s"\']+', soup.get_text())
-    return match.group(0) if match else None
+def extract_all_links_from_html(html_text):
+    soup = BeautifulSoup(html_text, "html.parser")
+    links = set()
+
+    for a in soup.find_all("a", href=True):
+        href = a['href'].strip()
+        if href.startswith("http"):
+            links.add(href)
+
+    return list(links)
 
 def get_final_url(alias):
     url = "https://mualink.vip/links/redirect-to-link"
