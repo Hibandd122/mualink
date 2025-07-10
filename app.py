@@ -51,7 +51,7 @@ def resolve():
         return jsonify({
             "alias": alias,
             "snote_url": snote_url,
-            "real_links": real_links or []
+            "real_links": real_links or r.text
         })
 
     except Exception as e:
