@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mualink Bypass — Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <h1>⚡ Mualink Bypass</h1>
+    <p>Tự động vượt link mual.ink qua proxy VN → trích xuất links từ note</p>
+  </div>
+
+  <div class="url-input-area">
+    <input class="url-input" id="mualink-url" type="text" value="https://mual.ink/jjE89" placeholder="Nhập link mual.ink cần vượt...">
+  </div>
+
+  <div class="action-area">
+    <button class="btn btn-primary" id="fetch-btn" onclick="doFetch()">
+      <span class="spinner"></span>
+      <span class="btn-text">🚀 Lấy Links</span>
+    </button>
+  </div>
+
+  <div class="results">
+    <div class="results-header">
+      <h2>📋 Kết quả</h2>
+      <span class="badge idle" id="status-badge">Chờ lệnh</span>
+    </div>
+    <div class="results-body empty" id="results-body">Nhấn "Lấy Links" để bắt đầu</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
