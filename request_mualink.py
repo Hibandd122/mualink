@@ -26,10 +26,13 @@ if not logger.handlers:
     ))
     logger.addHandler(_h)
 
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")
+templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 DEFAULT_MUALINK_URL = "https://mual.ink/jjE89"
 MUALINK_ORIGIN = "https://mual.ink"

@@ -5,3 +5,4 @@ aiogram==3.10.0
 jinja2==3.1.2
 pydantic==2.4.2
 urllib3==2.0.7
+requests
