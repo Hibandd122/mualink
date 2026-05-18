@@ -1,3 +1,7 @@
-flask
-cloudscraper
-beautifulsoup4
+fastapi==0.103.1
+uvicorn==0.23.2
+aiohttp==3.9.5
+aiogram==3.10.0
+jinja2==3.1.2
+pydantic==2.4.2
+urllib3==2.0.7
