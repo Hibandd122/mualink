@@ -86,3 +86,4 @@ async def set_webhook(url: str):
         return {"status": "success", "result": result, "webhook_url": webhook_url}
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
